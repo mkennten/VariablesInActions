@@ -18,8 +18,10 @@ jobs:
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
   job2:
     runs-on: ubuntu-latest
+    
     env:
       VARIABLE1 : "job2"
+      
     steps:
       - uses: actions/checkout@v3
 
@@ -30,9 +32,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-        env:
-          VARIABLE1 : "job3"
       - uses: actions/checkout@v3
 
       - name: Print variable
+        env:
+            VARIABLE1 : "job3 - Step 'Print variable'"
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
