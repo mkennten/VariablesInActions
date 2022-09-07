@@ -1,0 +1,38 @@
+name: 01 - VariablesScopes
+
+on:
+  workflow_dispatch
+
+env:
+  VARIABLE1 : 'Workflow'
+  
+jobs:
+  job1:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Print variable
+        run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
+  job2:
+    runs-on: ubuntu-latest
+    env:
+      VARIABLE1 : "job2"
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Print variable
+        run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
+        
+  job3:
+    runs-on: ubuntu-latest
+
+    steps:
+        env:
+          VARIABLE1 : "job3"
+      - uses: actions/checkout@v3
+
+      - name: Print variable
+        run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
