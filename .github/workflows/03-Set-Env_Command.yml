@@ -7,7 +7,7 @@ env:
   VARIABLE1 : 'Workflow'
   
 jobs:
-  job1:
+  ChangeVariableValue:
 
     runs-on: ubuntu-latest
 
@@ -23,7 +23,7 @@ jobs:
       - name: Print new variable value
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
   
-  job2:
+  CheckOriginalVariableValue:
 
     runs-on: ubuntu-latest
 
@@ -33,3 +33,18 @@ jobs:
       - name: Print original variable value
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
       
+  CreateNewVariable:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Print original variable value
+        run: echo "NEWVARIABLE = " ${{ env.NEWVARIABLE }}
+      
+      - name: Set New value to variable
+        run: echo "NEWVARIABLE='Here I am'" >> $GITHUB_ENV
+        
+      - name: Print new variable value
+        run: echo "NEWVARIABLE = " ${{ env.NEWVARIABLE }}
