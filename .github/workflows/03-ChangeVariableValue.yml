@@ -1,4 +1,4 @@
-name: 03 - Set-Env Command
+name: 03 - Change Variable Value
 
 on:
   workflow_dispatch
