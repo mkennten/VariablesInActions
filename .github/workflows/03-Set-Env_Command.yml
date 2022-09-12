@@ -18,7 +18,7 @@ jobs:
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
       
       - name: Set New value to variable
-        run: echo "::set-env name=VARIABLE1::new value"
+        run: echo "VARIABLE1='New value'" >> $GITHUB_ENV
         
       - name: Print new variable value
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
