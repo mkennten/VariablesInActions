@@ -1,0 +1,15 @@
+name: Accessing contexts
+on: 
+  workflow_dispatch
+
+jobs:
+  ShowContexts:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Some GitHub propeties
+        run: |
+          echo "::group::GitHub context properties"
+          echo '${{ github.triggering_actor }}'
+          echo $github.event.repository.default_branch
+          echo "::endgroup::"
