@@ -7,9 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Some GitHub propeties
+      - name: Some github properties
         run: |
-          echo "::group::GitHub context properties"
           echo '${{ github.triggering_actor }}'
           echo '${{ github.event.repository.default_branch }}'
-          echo "::endgroup::"
+          echo '${{ github.sender.avatar_url }}'
+          
+      - name: Some runner properties
+        run: |
+          echo '${{ runner.os }}'
+          echo '${{ runner.workspace }}'
+          echo '${{ runner.name }}'
