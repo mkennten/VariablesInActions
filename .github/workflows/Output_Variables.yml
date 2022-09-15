@@ -13,6 +13,7 @@ jobs:
       RESULT : "Result from step 'job1'"
   job2:
     runs-on: windows-latest
+    needs: [job1]
     steps:
       - name: Print job1 result
-        run: echo "VARIABLE1 = " ${{ jobs.job1.output.RESULT }}
+        run: echo "VARIABLE1 = " ${{ needs.job1.output.RESULT }}
