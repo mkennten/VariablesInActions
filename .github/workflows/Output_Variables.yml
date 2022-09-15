@@ -10,7 +10,7 @@ jobs:
       - name: Do something
         run: echo "Hello World!!"
     outputs:
-      RESULT : Result from step 'job1'
+      RESULT : ResultValue
   job2:
     runs-on: windows-latest
     needs: [job1]
