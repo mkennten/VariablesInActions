@@ -1,4 +1,4 @@
-name: 02 - Variables Scopes
+name: Variables Scopes
 
 on:
   workflow_dispatch
