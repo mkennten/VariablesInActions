@@ -20,23 +20,17 @@ jobs:
     steps:
       - name: Print variable
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
+      - name: Print variable
+        run: echo "VARIABLE1 = " ${{ jobs.jobValue.env.VARIABLE1 }}
         
   stepValue:
     runs-on: ubuntu-latest
     steps:
       - name: Print variable
-        id: stepValue
+        id: printVariable
         env:
             VARIABLE1 : "StepValue - Step 'Print variable'"
-        run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
-        
-  references:
-    runs-on: ubuntu-latest
-    needs: [jobValue,stepValue]
-    steps:
-      - name: Print workflow value
-        run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
-      - name: Print job value
-        run: echo "VARIABLE1 = " ${{ job.stepValue.env.VARIABLE1 }}
-      - name: Print step value
-        run: echo "VARIABLE1 = " ${{ job.stepValue.steps['stepValue'].env.VARIABLE1 }}
+        run: |
+          echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
+          echo "VARIABLE1 = " ${{ jobs.jobValue.env.VARIABLE1 }}
+          echo "VARIABLE1 = " ${{ jobs.jobValue.printVariable.env.VARIABLE1 }}
