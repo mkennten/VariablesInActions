@@ -20,8 +20,6 @@ jobs:
     steps:
       - name: Print variable
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
-      - name: Print variable
-        run: echo "VARIABLE1 = " ${{ jobs.jobValue.env.VARIABLE1 }}
         
   stepValue:
     runs-on: ubuntu-latest
@@ -30,7 +28,4 @@ jobs:
         id: printVariable
         env:
             VARIABLE1 : "StepValue - Step 'Print variable'"
-        run: |
-          echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
-          echo "VARIABLE1 = " ${{ jobs.stepValue.env.VARIABLE1 }}
-          echo "VARIABLE1 = " ${{ jobs.stepValue.printVariable.env.VARIABLE1 }}
+        run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
