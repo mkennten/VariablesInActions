@@ -1,4 +1,4 @@
-name: Variables Scopes
+name: Output variables
 
 on:
   workflow_dispatch
@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Do something
         run: echo "Hello World!!"
-    output:
+    outputs:
       RESULT : 'Result from step 'job1'"
   job2:
     runs-on: windows-latest
