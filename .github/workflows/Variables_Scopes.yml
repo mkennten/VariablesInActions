@@ -32,5 +32,5 @@ jobs:
             VARIABLE1 : "StepValue - Step 'Print variable'"
         run: |
           echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
-          echo "VARIABLE1 = " ${{ jobs.jobValue.env.VARIABLE1 }}
-          echo "VARIABLE1 = " ${{ jobs.jobValue.printVariable.env.VARIABLE1 }}
+          echo "VARIABLE1 = " ${{ jobs.stepValue.env.VARIABLE1 }}
+          echo "VARIABLE1 = " ${{ jobs.stepValue.printVariable.env.VARIABLE1 }}
