@@ -16,4 +16,4 @@ jobs:
     needs: [job1]
     steps:
       - name: Print job1 result
-        run: echo "VARIABLE1 = " ${{ needs.job1.output.RESULT }}
+        run: echo "RESULT = " ${{ needs.job1.outputs.RESULT }}
