@@ -1,7 +1,7 @@
 name: Action Parameters
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
     inputs:
       logLevel:
         description: 'Log level'
