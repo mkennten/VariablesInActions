@@ -7,6 +7,5 @@ jobs:
   call-workflow1:
     uses: ./.github/workflows/Reusable_Workflow.yml
     with:
-      plainInput: 'call1'
-    secrets:
-      secretInput: 'secret1'
+      input1: 'Hello'
+      input2: 'World'
