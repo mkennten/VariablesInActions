@@ -1,0 +1,43 @@
+name: Action Parameters
+
+on:
+  workflow_dispatch
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning' 
+        type: choice
+        options:
+        - info
+        - warning
+        - debug 
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true 
+        type: boolean 
+      tags:
+        description: 'Test scenario tags'
+        required: true 
+        type: string
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true 
+  
+jobs:
+  main:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print logLevel
+        run: echo "logLevel=" ${{ inputs.logLevel }}
+      
+      - name: Print new variable value
+        run: echo "print_tags = " ${{ inputs.print_tags }}
+        
+      - name: Echo inputs
+        run: echo '${{ toJSON(inputs) }}'
+  
+  
