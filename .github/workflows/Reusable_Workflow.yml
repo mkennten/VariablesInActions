@@ -6,12 +6,13 @@ on:
       plainInput:
         required: true
         type: string
+        description: 'This is a plain value'
     secrets:
       secretInput:
         required: true
-        type: string
+        description: 'This is a secret'
         
-  jobs:
+jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
     steps:
