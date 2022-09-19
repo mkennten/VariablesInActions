@@ -1,0 +1,21 @@
+name: Reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      plainInput:
+        required: true
+        type: string
+    secrets:
+      secretInput:
+        required: true
+        type: string
+        
+  jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print plainInput
+        run: echo "plainInput = " ${{ inputs.plainInput }}
+      - name: Print secretInput
+        run: echo "secretInput = " ${{ secrets.secretInput }}
