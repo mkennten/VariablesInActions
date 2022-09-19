@@ -3,20 +3,29 @@ name: Reusable workflow
 on:
   workflow_call:
     inputs:
-      plainInput:
+      input1:
         required: true
         type: string
-        description: 'This is a plain value'
-    secrets:
-      secretInput:
+        description: 'This is input 1'
+      input2:
         required: true
-        description: 'This is a secret'
-        
+        type: string
+        description: 'This is input 2'
+    outputs:
+      outValue:
+        description: "This is the output of the workflow"
+        value: ${{ jobs.reusable_workflow_job.outputs.output1 }}
+
 jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.setOutput.outputs.outValue }}
     steps:
-      - name: Print plainInput
-        run: echo "plainInput = " ${{ inputs.plainInput }}
-      - name: Print secretInput
-        run: echo "secretInput = " ${{ secrets.secretInput }}
+      - name: Print input1
+        run: echo "input1 = " ${{ inputs.input1 }}
+      - name: Print input2
+        run: echo "input2 = " ${{ inputs.input2 }}
+      - name: Set output value
+        id: setOutput
+        run: echo "::set-output name=outValue::${{ inputs.input1 }}-${{ inputs.input2 }}"
