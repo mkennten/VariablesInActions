@@ -14,5 +14,5 @@ jobs:
       - name: Print variable
         run: echo ${{ github.path }}
       - name: ls
-        run: ls ${{ github.path }}
+        run: ls /home/runner/work/_temp/_runner_file_commands
 
