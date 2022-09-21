@@ -7,7 +7,6 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 2
       matrix:
         region: ['northeurope','westeurope','westus']
         environment: ['dev','test','prod']
