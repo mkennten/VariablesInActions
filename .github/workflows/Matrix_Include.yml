@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        region: ['northeurope','westeurope','westus']
-        environment: ['dev','test','prod']
+        region: ['northeurope','westeurope']
+        environment: ['dev','test']
         include:
           - slot: 'green'
           - region: 'northeurope'
