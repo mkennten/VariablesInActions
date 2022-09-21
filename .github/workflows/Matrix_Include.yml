@@ -17,7 +17,7 @@ jobs:
           - region: 'eastus'
             environment: 'preprod'
     steps:
-      - run: echo 'Deploying on region ${{ matrix.region}} environment ${{ matrix.environment}}'
+      - run: echo 'Deploying on region ${{ matrix.region}} environment ${{ matrix.environment}} with ${{ matrix.slot }}'
       - run: date
       - run: sleep 5 
       - run: date
