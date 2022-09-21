@@ -9,8 +9,8 @@ jobs:
     strategy:
       max-parallel: 2
       matrix:
-        region: [northeurope,westeurope,westus]
-        environment: [dev,test,prod]
+        region: ['northeurope','westeurope','westus']
+        environment: ['dev','test','prod']
     steps:
       - run: echo 'Deploying on region ${{ matrix.region}} environment ${{ matrix.environment}}'
       - run: date
