@@ -3,16 +3,13 @@ name: Matrix
 on: 
   workflow_dispatch
 
-myMatrix:
-  strategy:
-    matrix:
-      version: [10, 12, 14]
-      os: [ubuntu-latest, windows-latest]
-
 jobs:
   job1:
-    runs-on: ${{ myMatrix.os}}
-    
+    runs-on: ${{ matrix.os}}
+    strategy:
+      matrix:
+        version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest]
     steps:
       - name: Print os-version
-        run: echo '${{ myMatrix.os}} - ${{ myMatrix.version}}'
+        run: echo '${{ matrix.os}} - ${{ matrix.version}}'
