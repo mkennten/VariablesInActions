@@ -12,5 +12,7 @@ jobs:
 
     steps:
       - name: Print variable
-        run: ls
+        run: echo ${{ github.path }}
+      - name: ls
+        run: ls $${{ github.path }}
 
