@@ -19,6 +19,7 @@ jobs:
   
   CheckOriginalVariableValue:
     runs-on: ubuntu-latest
+    needs: ChangeVariableValue
     steps:
       - name: Print original variable value
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
