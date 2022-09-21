@@ -12,7 +12,7 @@ jobs:
         region: ['northeurope','westeurope','westus']
         environment: ['dev','test','prod']
     steps:
-      - run: echo 'Deploying on region ${{ matrix.region}} environment ${{ matrix.environment}}'
+      - run: echo 'Region=${{ matrix.region}} Env=${{ matrix.environment}}'
       - run: date
       - run: sleep 5 
       - run: date
