@@ -8,37 +8,27 @@ env:
   
 jobs:
   ChangeVariableValue:
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Print original variable value
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
-      
       - name: Set New value to variable
         run: echo "VARIABLE1='New value'" >> $GITHUB_ENV
-        
       - name: Print new variable value
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
   
   CheckOriginalVariableValue:
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Print original variable value
         run: echo "VARIABLE1 = " ${{ env.VARIABLE1 }}
       
   CreateNewVariable:
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Print original variable value
         run: echo "NEWVARIABLE = " ${{ env.NEWVARIABLE }}
-      
       - name: Set New value to variable
         run: echo "NEWVARIABLE='Here I am'" >> $GITHUB_ENV
-        
       - name: Print new variable value
         run: echo "NEWVARIABLE = " ${{ env.NEWVARIABLE }}
