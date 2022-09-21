@@ -5,11 +5,14 @@ on:
 
 jobs:
   job1:
-    runs-on: ${{ matrix.os}}
+    runs-on: ubuntu-latest
     strategy:
+      max-parallel: 2
       matrix:
-        version: [10, 12, 14]
-        os: [ubuntu-latest, windows-latest]
+        region: [northeurope,westeurope,westus]
+        environment: [dev,test,prod]
     steps:
-      - name: Print os-version
-        run: echo '${{ matrix.os}} - ${{ matrix.version}}'
+      - run: echo 'Deploying on region ${{ matrix.region}} environment ${{ matrix.environment}}'
+      - run: date
+      - run: sleep 5 
+      - run: date
