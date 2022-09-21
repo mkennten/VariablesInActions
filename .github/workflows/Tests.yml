@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Print variable
-        run: echo ${{ github.path }}
+        run: echo ${{ github.workspace }}
       - name: ls
-        run: ls $${{ github.path }}
+        run: ls $${{ github.workspace }}
 
