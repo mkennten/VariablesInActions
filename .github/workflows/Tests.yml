@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Print variable
-        run: echo ${{ GITHUB_ENV }}
+        run: echo ${{ github.workspace }}
       - name: ls
-        run: ls $${{ GITHUB_ENV }}
+        run: ls ${{ github.workspace }}
 
