@@ -11,10 +11,6 @@ jobs:
         region: ['northeurope','westeurope']
         environment: ['dev','test']
         slot: ['blue','green']
-        exclude:
-          - slot: 'green'
-          - region: 'northeurope'
-            slot: 'blue'
     steps:
       - run: echo 'Deploying on region ${{ matrix.region}} environment ${{ matrix.environment}} with ${{ matrix.slot }}'
       - run: date
