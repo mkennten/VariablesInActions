@@ -1,4 +1,4 @@
-name: Matrix (include)
+name: Matrix (exclude)
 
 on: 
   workflow_dispatch
