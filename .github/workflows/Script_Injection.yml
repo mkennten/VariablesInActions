@@ -10,4 +10,4 @@ jobs:
     - name: Show title
       run: |
         title="${{ github.event.issue.title}} 
-      echo "Issue with title"
+        echo "Issue with title"
