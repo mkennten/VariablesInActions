@@ -12,4 +12,11 @@ jobs:
       - name: Show title
         run: |
           title="${{ github.event.issue.title}}"
-          echo "Issue with title"
+          echo $title
+          if [[ $title =~ ^MAX ]]; then
+            echo "Title starts with MAX"
+            exit 0
+          else
+            echo "Title doesn't start with MAX"
+            exit 1
+          fi
