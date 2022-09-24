@@ -7,7 +7,9 @@ on:
       
 jobs:
   dangerous_job:
-    - name: Show title
-      run: |
-        title="${{ github.event.issue.title}} 
-        echo "Issue with title"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show title
+        run: |
+          title="${{ github.event.issue.title}} 
+          echo "Issue with title"
