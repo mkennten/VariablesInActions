@@ -20,3 +20,18 @@ jobs:
             echo "Title doesn't start with MAX"
             exit 1
           fi
+  safe_job:
+    runs-on: ubuntu-latest
+    env:
+      TITLE: ${{ github.event.issue.title }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Show title
+        run: |
+          if [[ "$TITLE" =~ ^MAX ]]; then
+            echo "Title starts with MAX"
+            exit 0
+          else
+            echo "Title doesn't start with MAX"
+            exit 1
+          fi
