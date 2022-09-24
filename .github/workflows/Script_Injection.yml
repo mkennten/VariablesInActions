@@ -9,10 +9,10 @@ jobs:
   dangerous_job:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Show title
         run: |
           title="${{ github.event.issue.title}}"
-          echo $title
           if [[ $title =~ ^MAX ]]; then
             echo "Title starts with MAX"
             exit 0
