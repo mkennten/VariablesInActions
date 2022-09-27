@@ -2,11 +2,17 @@ name: Context testing
 on: 
   workflow_dispatch
 
+env:
+  VARIABLE1: "Custom Variable"
+
 jobs:
   ShowContexts:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Dump Env context
+        run: echo '${{ toJSON(env) }}'
+        
       - name: Dump GitHub context
         run: echo '${{ toJSON(github) }}'
       
